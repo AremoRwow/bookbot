@@ -6,10 +6,15 @@ def main():
     num_words = count_words(full_text)
     num_letters = count_letters(full_text)
     char_list = convert_to_list(num_letters)
-    print(num_words, "words found in the document")
-    print(num_letters)
     char_list.sort(reverse=True, key=sort_on)
-    print(char_list)
+
+    #Format the output of all the main function and print it
+    print(f"--- Begin report of {book_path}  ---")
+    print(f"{num_words} words found in the document")
+    print()
+    for char in char_list:
+        print(f"The '{char["letter"]}' character was found {char["count"]} times")
+    print("--- End report ---")
 
 #This counts the number of words in the entire text of a specified file or book
 def count_words(text):
